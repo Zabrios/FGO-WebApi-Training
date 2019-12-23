@@ -1,10 +1,11 @@
+using FGO.WebApi.Persistence.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using FGO.WebApi.Persistence.Context;
-using Microsoft.EntityFrameworkCore;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace FGO.WebApi.Training
 {
@@ -27,6 +28,11 @@ namespace FGO.WebApi.Training
                 options.UseSqlServer(connString, b=>b.MigrationsAssembly("FGO.WebApi.Training"));
                 options.EnableDetailedErrors();
             });
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "FGO Web API", Version ="v1"});
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +53,14 @@ namespace FGO.WebApi.Training
             {
                 endpoints.MapControllers();
             });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "FGO Web API v1");
+                c.RoutePrefix = string.Empty;
+            });
+
         }
     }
 }
