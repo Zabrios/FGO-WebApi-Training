@@ -1,4 +1,6 @@
-﻿namespace FGO.WebApi.Domain.Entities
+﻿using System.Collections.Generic;
+
+namespace FGO.WebApi.Domain.Entities
 {
     public class ServantBaseModel
     {
