@@ -17,4 +17,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FGO.WebApi.Domain.Entities\FGO.WebApi.Domain.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

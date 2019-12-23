@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -18,7 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FGO.WebApi.Domain.Entities\FGO.WebApi.Domain.Entities.csproj" />
     <ProjectReference Include="..\FGO.WebApi.Infrastructure.Contracts\FGO.WebApi.Infrastructure.Contracts.csproj" />
+    <ProjectReference Include="..\FGO.WebApi.Persistence.Contracts\FGO.WebApi.Persistence.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FGO.WebApi.Training", "FGO.WebApi.Training\FGO.WebApi.Training.csproj", "{846F139C-CD23-49AD-9E24-42436C10C003}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FGO.WebApi.Training", "FGO.WebApi.Training\FGO.WebApi.Training.csproj", "{846F139C-CD23-49AD-9E24-42436C10C003}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FGO.WebApi.Domain", "FGO.WebApi.Domain\FGO.WebApi.Domain.csproj", "{941B8F0B-3A2B-45EA-AA1B-E2F36910A5D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FGO.WebApi.Domain", "FGO.WebApi.Domain\FGO.WebApi.Domain.csproj", "{941B8F0B-3A2B-45EA-AA1B-E2F36910A5D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FGO.WebApi.Infrastructure", "FGO.WebApi.Infrastructure\FGO.WebApi.Infrastructure.csproj", "{16437B09-D477-462F-997B-D0A21E9062E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FGO.WebApi.Infrastructure", "FGO.WebApi.Infrastructure\FGO.WebApi.Infrastructure.csproj", "{16437B09-D477-462F-997B-D0A21E9062E8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{A35DCAD7-15C3-4233-AE7D-37290F5AC573}"
 EndProject
@@ -15,13 +15,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{070BF0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{DC53FECB-B55B-4A0E-9F61-1AB3DEA56611}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FGO.WebApi.Infrastructure.Contracts", "FGO.WebApi.Infrastructure.Contracts\FGO.WebApi.Infrastructure.Contracts.csproj", "{7AB1424F-1A55-4844-9A6D-4A4312EC2ACE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FGO.WebApi.Infrastructure.Contracts", "FGO.WebApi.Infrastructure.Contracts\FGO.WebApi.Infrastructure.Contracts.csproj", "{7AB1424F-1A55-4844-9A6D-4A4312EC2ACE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FGO.WebApi.Domain.Entities", "FGO.WebApi.Domain.Entities\FGO.WebApi.Domain.Entities.csproj", "{21BF694C-3B33-482D-AE92-18D6F3F098F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FGO.WebApi.Domain.Entities", "FGO.WebApi.Domain.Entities\FGO.WebApi.Domain.Entities.csproj", "{21BF694C-3B33-482D-AE92-18D6F3F098F3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{8611583F-37FA-4EDA-9717-8578C26BDDE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FGO.WebApi.Persistence", "FGO.WebApi.Persistence\FGO.WebApi.Persistence.csproj", "{CD3E86D7-6334-460D-B9E0-6C3401073667}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FGO.WebApi.Persistence", "FGO.WebApi.Persistence\FGO.WebApi.Persistence.csproj", "{CD3E86D7-6334-460D-B9E0-6C3401073667}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FGO.WebApi.Persistence.Contracts", "FGO.WebApi.Persistence.Contracts\FGO.WebApi.Persistence.Contracts.csproj", "{FF0AF67D-121E-4843-8A4D-71A0C0AE3C86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FGO.WebApi.Domain.Contracts", "FGO.WebApi.Domain.Contracts\FGO.WebApi.Domain.Contracts.csproj", "{598C088F-E51B-42C6-B361-774C5DDE9F52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +57,14 @@ Global
 		{CD3E86D7-6334-460D-B9E0-6C3401073667}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD3E86D7-6334-460D-B9E0-6C3401073667}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD3E86D7-6334-460D-B9E0-6C3401073667}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF0AF67D-121E-4843-8A4D-71A0C0AE3C86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF0AF67D-121E-4843-8A4D-71A0C0AE3C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF0AF67D-121E-4843-8A4D-71A0C0AE3C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF0AF67D-121E-4843-8A4D-71A0C0AE3C86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{598C088F-E51B-42C6-B361-774C5DDE9F52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{598C088F-E51B-42C6-B361-774C5DDE9F52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{598C088F-E51B-42C6-B361-774C5DDE9F52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{598C088F-E51B-42C6-B361-774C5DDE9F52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +76,8 @@ Global
 		{7AB1424F-1A55-4844-9A6D-4A4312EC2ACE} = {DC53FECB-B55B-4A0E-9F61-1AB3DEA56611}
 		{21BF694C-3B33-482D-AE92-18D6F3F098F3} = {070BF077-FFD7-4090-922D-841DA3A17CC6}
 		{CD3E86D7-6334-460D-B9E0-6C3401073667} = {8611583F-37FA-4EDA-9717-8578C26BDDE4}
+		{FF0AF67D-121E-4843-8A4D-71A0C0AE3C86} = {8611583F-37FA-4EDA-9717-8578C26BDDE4}
+		{598C088F-E51B-42C6-B361-774C5DDE9F52} = {070BF077-FFD7-4090-922D-841DA3A17CC6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12C80C74-2204-44B9-AEAA-75D656DD240E}

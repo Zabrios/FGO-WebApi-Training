@@ -1,10 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
@@ -15,6 +16,13 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FGO.WebApi.Domain.Contracts\FGO.WebApi.Domain.Contracts.csproj" />
+    <ProjectReference Include="..\FGO.WebApi.Domain.Entities\FGO.WebApi.Domain.Entities.csproj" />
+    <ProjectReference Include="..\FGO.WebApi.Infrastructure.Contracts\FGO.WebApi.Infrastructure.Contracts.csproj" />
+    <ProjectReference Include="..\FGO.WebApi.Persistence.Contracts\FGO.WebApi.Persistence.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

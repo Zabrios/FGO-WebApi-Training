@@ -1,4 +1,11 @@
+using AutoMapper;
+using FGO.WebApi.Domain.Contracts.Services.Servant;
+using FGO.WebApi.Domain.Services.Servant;
+using FGO.WebApi.Infrastructure;
+using FGO.WebApi.Infrastructure.Contracts;
+using FGO.WebApi.Persistence;
 using FGO.WebApi.Persistence.Context;
+using FGO.WebApi.Persistence.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -22,12 +29,19 @@ namespace FGO.WebApi.Training
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<IFGOContext, FGOContext>();
+
+            services.AddAutoMapper(typeof(Startup));
             services.AddDbContext<FGOContext>(options =>
             {
                 var connString = Configuration["ConnectionString"];
-                options.UseSqlServer(connString, b=>b.MigrationsAssembly("FGO.WebApi.Training"));
+                options.UseSqlServer(connString, b => b.MigrationsAssembly("FGO.WebApi.Training"));
                 options.EnableDetailedErrors();
             });
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IServantsService, ServantsService>();
+            services.AddScoped<IServantsRepository, ServantsRepository>();
 
             services.AddSwaggerGen(c =>
             {

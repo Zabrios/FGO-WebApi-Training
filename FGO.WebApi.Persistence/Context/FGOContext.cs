@@ -3,21 +3,20 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using FGO.WebApi.Persistence.Contracts;
 using System.Configuration;
 using System.Linq;
 
 namespace FGO.WebApi.Persistence.Context
 {
-    public class FGOContext : DbContext
+    public class FGOContext : DbContext, IFGOContext
     {
-        private readonly IConfiguration Configuration;
         public DbContext Instance => this;
 
         public virtual DbSet<ServantBaseModel> Servants { get; set; }
 
-        protected FGOContext(IConfiguration config) 
+        protected FGOContext() 
         {
-            Configuration = config;
         }
         public FGOContext(DbContextOptions<FGOContext> options) : base(options) { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

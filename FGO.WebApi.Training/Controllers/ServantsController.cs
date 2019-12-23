@@ -1,4 +1,5 @@
-﻿using FGO.WebApi.Domain.Entities;
+﻿using FGO.WebApi.Domain.Contracts.Services.Servant;
+using FGO.WebApi.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -10,13 +11,28 @@ namespace FGO.WebApi.Training.Controllers
     [ApiController]
     public class ServantsController : ControllerBase
     {
+        public readonly IServantsService ServantService;
+        public ServantsController(IServantsService servantService)
+        {
+            ServantService = servantService;
+        }
+
         // GET: api/Servants
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [Produces("application/json", Type = typeof(List<ServantBaseModel>))]
         public async Task<IActionResult> GetAllServantsAsync()
         {
-            return BadRequest();
+            try
+            {
+                var servants = await ServantService.GetAllServants();
+                return Ok(servants);
+            }
+            catch (System.Exception)
+            {
+
+                return BadRequest();
+            }
         }
 
         // GET: api/Servants/5

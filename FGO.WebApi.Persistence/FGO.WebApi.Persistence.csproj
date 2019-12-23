@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FGO.WebApi.Domain.Entities\FGO.WebApi.Domain.Entities.csproj" />
+    <ProjectReference Include="..\FGO.WebApi.Persistence.Contracts\FGO.WebApi.Persistence.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>
