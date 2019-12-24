@@ -1,5 +1,6 @@
 ﻿using FGO.WebApi.Domain.Contracts.Services.Servant;
 using FGO.WebApi.Domain.Entities;
+using FGO.WebApi.Domain.Entities.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;

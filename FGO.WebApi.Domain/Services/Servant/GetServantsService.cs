@@ -1,5 +1,6 @@
 ﻿using FGO.WebApi.Domain.Contracts.Services.Servant;
 using FGO.WebApi.Domain.Entities;
+using FGO.WebApi.Domain.Entities.Models;
 using FGO.WebApi.Infrastructure.Contracts;
 using FGO.WebApi.Persistence.Contracts;
 using Microsoft.EntityFrameworkCore;

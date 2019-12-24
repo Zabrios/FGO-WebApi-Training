@@ -1,4 +1,5 @@
 ﻿using FGO.WebApi.Domain.Entities;
+using FGO.WebApi.Domain.Entities.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

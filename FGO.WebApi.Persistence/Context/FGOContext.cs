@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using FGO.WebApi.Persistence.Contracts;
 using System.Configuration;
 using System.Linq;
+using FGO.WebApi.Domain.Entities.Models;
 
 namespace FGO.WebApi.Persistence.Context
 {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FGO.WebApi.Domain.Entities
+namespace FGO.WebApi.Domain.Entities.Models
 {
     public class ServantBaseModel
     {

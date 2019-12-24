@@ -1,4 +1,5 @@
 ﻿using FGO.WebApi.Domain.Entities;
+using FGO.WebApi.Domain.Entities.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
