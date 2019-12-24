@@ -15,6 +15,8 @@ namespace FGO.WebApi.Persistence.Context
         public DbContext Instance => this;
 
         public virtual DbSet<ServantBaseModel> Servants { get; set; }
+        public virtual DbSet<AscensionModel> Ascensions { get; set; }
+        public virtual DbSet<AliasModel> Aliases { get; set; }
 
         protected FGOContext() 
         {
@@ -32,17 +34,26 @@ namespace FGO.WebApi.Persistence.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(FGOContext).Assembly);
-            modelBuilder.Entity<ServantBaseModel>()
-                .Property(e => e.Alias)
-                .HasConversion(
-                    v => string.Join(",", v),
-                    v => v.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries));
+            //modelBuilder.Entity<ServantBaseModel>()
+            //    .Property(e => e.Alias)
+            //    .HasConversion(
+            //        v => string.Join(",", v),
+            //        v => v.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries));
 
             modelBuilder.Entity<ServantBaseModel>()
                 .Property(e => e.ID)
                 .ValueGeneratedNever()
                 .HasAnnotation("DatabaseGenerated", DatabaseGeneratedOption.None);
 
+            modelBuilder.Entity<AscensionModel>()
+                .HasOne<ServantBaseModel>(s => s.Servant)
+                .WithMany(sbm => sbm.Ascensions)
+                .HasForeignKey(s => s.ServantId);
+
+            modelBuilder.Entity<AliasModel>()
+                .HasOne(a => a.Servant)
+                .WithMany(s => s.Aliases)
+                .HasForeignKey(a => a.ServantId);
 
             base.OnModelCreating(modelBuilder);
         }

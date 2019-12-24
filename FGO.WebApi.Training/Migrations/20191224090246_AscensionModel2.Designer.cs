@@ -5,14 +5,16 @@ using FGO.WebApi.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FGO.WebApi.Training.Migrations
 {
     [DbContext(typeof(FGOContext))]
-    partial class FGOContextModelSnapshot : ModelSnapshot
+    [Migration("20191224090246_AscensionModel2")]
+    partial class AscensionModel2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,42 +22,24 @@ namespace FGO.WebApi.Training.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("FGO.WebApi.Domain.Entities.Models.AliasModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Alias")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ServantId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ServantId");
-
-                    b.ToTable("Aliases");
-                });
-
             modelBuilder.Entity("FGO.WebApi.Domain.Entities.Models.AscensionModel", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("ServantID")
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation("DatabaseGenerated", DatabaseGeneratedOption.None);
+
+                    b.Property<int>("AscensionID")
+                        .HasColumnType("int");
 
                     b.Property<byte[]>("Image")
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<int>("ServantId")
+                    b.Property<int?>("ServantBaseModelID")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ServantID", "AscensionID");
 
-                    b.HasIndex("ServantId");
+                    b.HasIndex("ServantBaseModelID");
 
                     b.ToTable("Ascensions");
                 });
@@ -66,6 +50,9 @@ namespace FGO.WebApi.Training.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("DatabaseGenerated", DatabaseGeneratedOption.None);
 
+                    b.Property<string>("Alias")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("AtkLv1")
                         .HasColumnType("int");
 
@@ -74,9 +61,6 @@ namespace FGO.WebApi.Training.Migrations
 
                     b.Property<int>("AtkMaxLv")
                         .HasColumnType("int");
-
-                    b.Property<string>("CommandCards")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Cost")
                         .HasColumnType("int");
@@ -110,22 +94,11 @@ namespace FGO.WebApi.Training.Migrations
                     b.ToTable("Servants");
                 });
 
-            modelBuilder.Entity("FGO.WebApi.Domain.Entities.Models.AliasModel", b =>
-                {
-                    b.HasOne("FGO.WebApi.Domain.Entities.Models.ServantBaseModel", "Servant")
-                        .WithMany("Aliases")
-                        .HasForeignKey("ServantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("FGO.WebApi.Domain.Entities.Models.AscensionModel", b =>
                 {
-                    b.HasOne("FGO.WebApi.Domain.Entities.Models.ServantBaseModel", "Servant")
+                    b.HasOne("FGO.WebApi.Domain.Entities.Models.ServantBaseModel", null)
                         .WithMany("Ascensions")
-                        .HasForeignKey("ServantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ServantBaseModelID");
                 });
 #pragma warning restore 612, 618
         }

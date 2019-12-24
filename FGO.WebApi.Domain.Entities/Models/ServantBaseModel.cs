@@ -7,7 +7,7 @@ namespace FGO.WebApi.Domain.Entities.Models
 
         public int ID { get; set; }
         public string Name { get; set; }
-        public string[] Alias { get; set; }
+        public ICollection<AliasModel> Aliases { get; set; }
         public int Cost { get; set; }
         public string ServantClass { get; set; }
         public int MaxLvl { get; set; }
@@ -19,6 +19,8 @@ namespace FGO.WebApi.Domain.Entities.Models
         public int HpLv1 { get; set; }
         public int HpMaxLv { get; set; }
         public int HpLv100 { get; set; }
+        public string CommandCards { get; set; } // will always be ordered Q -> A -> B. Ex: QQAAB
+        public ICollection<AscensionModel> Ascensions { get; set; }
 
     }
 }

@@ -5,14 +5,16 @@ using FGO.WebApi.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FGO.WebApi.Training.Migrations
 {
     [DbContext(typeof(FGOContext))]
-    partial class FGOContextModelSnapshot : ModelSnapshot
+    [Migration("20191224095044_AliasTable")]
+    partial class AliasTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,9 +76,6 @@ namespace FGO.WebApi.Training.Migrations
 
                     b.Property<int>("AtkMaxLv")
                         .HasColumnType("int");
-
-                    b.Property<string>("CommandCards")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Cost")
                         .HasColumnType("int");
