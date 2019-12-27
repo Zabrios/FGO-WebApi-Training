@@ -12,7 +12,6 @@ namespace FGO.WebApi.Infrastructure
 {
     public class ServantsRepository : IServantsRepository
     {
-        protected DbSet<ServantBaseModel> Servants;
         protected readonly IFGOContext Context;
         public ServantsRepository(IFGOContext context)
         {

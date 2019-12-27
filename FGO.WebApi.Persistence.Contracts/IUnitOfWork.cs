@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FGO.WebApi.Persistence.Contracts
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
         Task SaveAsync(CancellationToken cancellationToken = default);
     }
