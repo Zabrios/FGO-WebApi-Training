@@ -10,5 +10,7 @@ namespace FGO.WebApi.Persistence.Contracts
     public interface IFGOContext : IDBContext
     {
         DbSet<ServantBaseModel> Servants { get; set; }
+        DbSet<AscensionModel> Ascensions { get; set; }
+        DbSet<AliasModel> Aliases { get; set; }
     }
 }
