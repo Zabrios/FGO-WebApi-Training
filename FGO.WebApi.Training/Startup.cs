@@ -40,7 +40,7 @@ namespace FGO.WebApi.Training
             });
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<IServantsService, ServantsService>();
+            services.AddScoped<IServantService, ServantsService>();
             services.AddScoped<IServantsRepository, ServantsRepository>();
 
             services.AddSwaggerGen(c =>

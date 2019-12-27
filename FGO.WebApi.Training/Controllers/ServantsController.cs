@@ -12,8 +12,8 @@ namespace FGO.WebApi.Training.Controllers
     [ApiController]
     public class ServantsController : ControllerBase
     {
-        public readonly IServantsService ServantService;
-        public ServantsController(IServantsService servantService)
+        public readonly IServantService ServantService;
+        public ServantsController(IServantService servantService)
         {
             ServantService = servantService;
         }

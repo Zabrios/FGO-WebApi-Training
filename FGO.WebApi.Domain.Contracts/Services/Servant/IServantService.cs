@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FGO.WebApi.Domain.Contracts.Services.Servant
 {
-    public interface IServantsService
+    public interface IServantService
     {
         Task<List<ServantBaseModel>> GetAllServants();
     }

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace FGO.WebApi.Domain.Services.Servant
 {
-    public class ServantsService : IServantsService
+    public class ServantsService : IServantService
     {
         protected readonly IUnitOfWork UnitOfWork;
         public IServantsRepository ServantsRepository;
