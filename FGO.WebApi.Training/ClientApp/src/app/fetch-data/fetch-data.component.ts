@@ -1,5 +1,5 @@
-import { Component, Inject, NgModule } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, Inject, NgModule, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RouterModule} from '@angular/router';
 
 @Component({
@@ -10,30 +10,42 @@ import { RouterModule} from '@angular/router';
 @NgModule({
     imports: [RouterModule],
 })
-export class FetchDataComponent {
+export class FetchDataComponent implements OnInit{
   public servants: ServantBaseModel[];
-  public API = 'http://localhost:44380/api/';
+  public apiUrl = 'api/Servant';
+  baseUrl: string;
+  http: HttpClient;
 
-  constructor(http: HttpClient) {
-    http.get<ServantBaseModel[]>(this.API + 'Servant').subscribe(result => {
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    this.baseUrl = baseUrl;
+    this.http = http;
+    let headers = new HttpHeaders({ 'Content-Type': 'application-json'});
+  }
+
+  ngOnInit() {
+    this.http.get<ServantBaseModel[]>(this.baseUrl + this.apiUrl).subscribe(result => {
       this.servants = result;
+      console.log(result);
     }, error => console.error(error));
+
   }
 }
 
-class ServantBaseModel {
+interface ServantBaseModel {
   id: number;
   name: string;
   cost: number;
-  class: string;
-  maxlvl: number;
-  rarityNumber: number;
+  servantClass: string;
+  maxLvl: number;
+  rarityNum: number;
   rarityName: string;
   atkLv1: number;
-  atkMaxLvl: number;
+  atkMaxLv: number;
   atkLvl100: number;
   hpLv1: number;
-  hpMaxLvl: number;
+  hpMaxLv: number;
   hpLvl100: number;
-  commandCards: string; 
+  commandCards: string;
+  aliases: string;
+  ascensions: string;
 }

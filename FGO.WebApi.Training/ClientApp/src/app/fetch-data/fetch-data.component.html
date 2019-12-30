@@ -2,7 +2,7 @@
 
 <p>This component demonstrates fetching data from the server.</p>
 
-<p *ngIf="!(servants | async)"><em>Loading...</em></p>
+<p *ngIf="!servants"><em>Loading...</em></p>
 <p>
   <a [routerLink]="['/api/Servant']" class="btn-primary btn-primary float-right mb-3">Test</a>
 </p>
@@ -19,29 +19,31 @@
       <th>Rarity</th>
       <th>Atk. Lv1</th>
       <th>Atk. Max Lvl</th>
-      <th>Atk. Level 100</th>
+      <!--<th>Atk. Level 100</th>-->
       <th>HP Lv1</th>
       <th>HP Max Lvl</th>
-      <th>HP Level 100</th>
+      <!--<th>HP Level 100</th>-->
       <th>Command Cards</th>
+      <!--<th>Aliases</th>
+      <th>Ascensions</th>-->
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let servant of servants">
       <td>{{ servant.id }}</td>
-      <td>{{ forecast.name }}</td>
-      <td>{{ forecast.cost }}</td>
-      <td>{{ forecast.class }}</td>
-      <td>{{ forecast.maxlvl }}</td>
-      <td>{{ forecast.rarityNumber }}</td>
-      <td>{{ forecast.rarityName }}</td>
-      <td>{{ forecast.atkLv1 }}</td>
-      <td>{{ forecast.atkMaxLvl }}</td>
-      <td>{{ forecast.atkLvl100 }}</td>
-      <td>{{ forecast.hpLv1 }}</td>
-      <td>{{ forecast.hpMaxLvl }}</td>
-      <td>{{ forecast.hpLvl100 }}</td>
-      <td>{{ forecast.commandCards }}</td>
+      <td>{{ servant.name }}</td>
+      <td>{{ servant.cost }}</td>
+      <td>{{ servant.servantClass }}</td>
+      <td>{{ servant.maxLvl }}</td>
+      <td>{{ servant.rarityNum }}</td>
+      <td>{{ servant.rarityName }}</td>
+      <td>{{ servant.atkLv1 }}</td>
+      <td>{{ servant.atkMaxLv }}</td>
+      <!--<td>{{ servant.atkLvl100 }}</td>-->
+      <td>{{ servant.hpLv1 }}</td>
+      <td>{{ servant.hpMaxLv }}</td>
+      <!--<td>{{ servant.hpLvl100 }}</td>-->
+      <td id="cards">{{ servant.commandCards }}</td>
     </tr>
   </tbody>
 </table>
