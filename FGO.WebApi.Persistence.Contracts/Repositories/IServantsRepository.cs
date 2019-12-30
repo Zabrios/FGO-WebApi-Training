@@ -1,9 +1,8 @@
-﻿using FGO.WebApi.Domain.Entities;
-using FGO.WebApi.Domain.Entities.Models;
+﻿using FGO.WebApi.Domain.Entities.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace FGO.WebApi.Infrastructure.Contracts
+namespace FGO.WebApi.Persistence.Contracts.Repositories
 {
     public interface IServantsRepository
     {

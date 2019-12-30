@@ -1,12 +1,7 @@
-﻿using FGO.WebApi.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using FGO.WebApi.Domain.Entities.Models;
 using FGO.WebApi.Persistence.Contracts;
-using System.Configuration;
-using System.Linq;
-using FGO.WebApi.Domain.Entities.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace FGO.WebApi.Persistence.Context
 {
@@ -34,22 +29,6 @@ namespace FGO.WebApi.Persistence.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(FGOContext).Assembly);
-
-            //modelBuilder.Entity<ServantBaseModel>()
-            //    .Property(e => e.ID)
-            //    .ValueGeneratedNever()
-            //    .HasAnnotation("DatabaseGenerated", DatabaseGeneratedOption.None);
-
-            //modelBuilder.Entity<AscensionModel>()
-            //    .HasOne<ServantBaseModel>(s => s.Servant)
-            //    .WithMany(sbm => sbm.Ascensions)
-            //    .HasForeignKey(s => s.ServantId);
-
-            //modelBuilder.Entity<AliasModel>()
-            //    .HasOne(a => a.Servant)
-            //    .WithMany(s => s.Aliases)
-            //    .HasForeignKey(a => a.ServantId);
-
             base.OnModelCreating(modelBuilder);
         }
 
