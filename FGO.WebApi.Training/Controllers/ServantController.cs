@@ -21,7 +21,7 @@ namespace FGO.WebApi.Training.Controllers
             ServantService = servantService;
         }
 
-        // GET: api/Servants
+        // GET: api/Servant
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [Produces("application/json", Type = typeof(List<ServantBaseModel>))]
@@ -39,7 +39,7 @@ namespace FGO.WebApi.Training.Controllers
             }
         }
 
-        // GET: api/Servants/5
+        // GET: api/Servant/5
         //[HttpGet("{id}", Name = "Get")]
         //public string Get(int id)
         //{
@@ -52,7 +52,7 @@ namespace FGO.WebApi.Training.Controllers
         //{
         //}
 
-        // PUT: api/Servants/5
+        // PUT: api/Servant/5
         [HttpPut("{id}")]
         public async Task<IActionResult> InsertServantAscensionImages(int id)
         {
