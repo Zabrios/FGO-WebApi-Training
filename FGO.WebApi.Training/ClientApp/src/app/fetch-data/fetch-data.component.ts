@@ -15,7 +15,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class FetchDataComponent implements OnInit{
   public servants: ServantBaseModel[];
   public apiUrl = 'api/Servant';
-  public ascArt: HTMLImageElement;
+  public ascArt: File;
   baseUrl: string;
   http: HttpClient;
 
@@ -37,7 +37,7 @@ export class FetchDataComponent implements OnInit{
   }
 
   onGetAscensionArt(id: number) {
-    this.http.get<HTMLImageElement>(this.baseUrl + 'api/ascension/' + id + '/1').subscribe(result => {
+    this.http.get<File>(this.baseUrl + 'api/ascension/' + id + '/1').subscribe(result => {
       this.ascArt = result;
     });
   }
