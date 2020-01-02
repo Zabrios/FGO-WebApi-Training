@@ -96,18 +96,19 @@ namespace FGO.WebApi.Training.Controllers
             List<string> images = new List<string>();
             if(ascension.Count() > 0)
             {
-                foreach (var art in ascension)
+                try
                 {
-                    images.Add(System.Convert.ToBase64String(art.Image));
+                    foreach (var art in ascension)
+                    {
+                        images.Add(Convert.ToBase64String(art.Image));
+                    }
+                    return Ok(images);
                 }
-                return Ok(images);
-                //byte[] imageBytes = ascension.ElementAt(stage).Image;
-                //string[] images = null;
-                //foreach (var art in ascension)
-                //{
-                //    images.Append(System.Convert.ToBase64String(art.Image));
-                //}
-                //return Ok(System.Convert.ToBase64String(imageBytes));
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
             }
             else
             {
