@@ -1,10 +1,12 @@
 import { Component, Inject, NgModule, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-fetch-data',
-  templateUrl: './fetch-data.component.html'
+  templateUrl: './fetch-data.component.html',
+  styleUrls: ['./fetch-data.component.css']
 })
 
 @NgModule({
@@ -13,6 +15,7 @@ import { RouterModule} from '@angular/router';
 export class FetchDataComponent implements OnInit{
   public servants: ServantBaseModel[];
   public apiUrl = 'api/Servant';
+  public ascArt: HTMLImageElement;
   baseUrl: string;
   http: HttpClient;
 
@@ -27,7 +30,16 @@ export class FetchDataComponent implements OnInit{
       this.servants = result;
       console.log(result);
     }, error => console.error(error));
+  }
 
+  function($scope) {
+    $scope.orderByField = 'cost'
+  }
+
+  onGetAscensionArt(id: number) {
+    this.http.get<HTMLImageElement>(this.baseUrl + 'api/ascension/' + id + '/1').subscribe(result => {
+      this.ascArt = result;
+    });
   }
 }
 

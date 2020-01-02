@@ -1,0 +1,11 @@
+.hidden {
+  visibility: hidden;
+}
+
+.linkHover {
+  cursor: pointer;
+}
+
+  .linkHover:hover {
+    background: #6956E8;
+  }

@@ -15,8 +15,8 @@
       <th>Cost</th>
       <th>Class</th>
       <th>Max. Level</th>
-      <th>Rarity</th>
-      <th>Rarity</th>
+      <th colspan="2">Rarity</th>
+      <!--<th></th>-->
       <th>Atk. Lv1</th>
       <th>Atk. Max Lvl</th>
       <!--<th>Atk. Level 100</th>-->
@@ -29,7 +29,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let servant of servants">
+    <tr class="linkHover" *ngFor="let servant of servants" (click)="onGetAscensionArt(274)">
       <td>{{ servant.id }}</td>
       <td>{{ servant.name }}</td>
       <td>{{ servant.cost }}</td>
@@ -47,3 +47,10 @@
     </tr>
   </tbody>
 </table>
+
+<div id="servantAscension" class="hidden">
+  <img [src]="ascArt"/>
+
+
+
+</div>
