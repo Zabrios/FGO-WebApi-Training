@@ -1,11 +1,8 @@
 <h1 id="tableLabel">Servants</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<p>Retrieves a list of servants stored in the database. Clicking a row may display the servant's ascension art.</p>
 
 <p *ngIf="!servants"><em>Loading...</em></p>
-<p>
-  <a [routerLink]="['/api/Servant']" class="btn-primary btn-primary float-right mb-3">Test</a>
-</p>
 
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="servants">
   <thead>
@@ -16,20 +13,15 @@
       <th>Class</th>
       <th>Max. Level</th>
       <th colspan="2">Rarity</th>
-      <!--<th></th>-->
       <th>Atk. Lv1</th>
       <th>Atk. Max Lvl</th>
-      <!--<th>Atk. Level 100</th>-->
       <th>HP Lv1</th>
       <th>HP Max Lvl</th>
-      <!--<th>HP Level 100</th>-->
       <th>Command Cards</th>
-      <!--<th>Aliases</th>
-      <th>Ascensions</th>-->
     </tr>
   </thead>
   <tbody>
-    <tr class="linkHover" *ngFor="let servant of servants" (click)="onGetAscensionArt(274)">
+    <tr class="linkHover" *ngFor="let servant of servants" (click)="onGetAscensionArt(servant.id, servant.name)" [class.active]="servant.id == selectedRow">
       <td>{{ servant.id }}</td>
       <td>{{ servant.name }}</td>
       <td>{{ servant.cost }}</td>
@@ -39,18 +31,17 @@
       <td>{{ servant.rarityName }}</td>
       <td>{{ servant.atkLv1 }}</td>
       <td>{{ servant.atkMaxLv }}</td>
-      <!--<td>{{ servant.atkLvl100 }}</td>-->
       <td>{{ servant.hpLv1 }}</td>
       <td>{{ servant.hpMaxLv }}</td>
-      <!--<td>{{ servant.hpLvl100 }}</td>-->
       <td id="cards">{{ servant.commandCards }}</td>
     </tr>
   </tbody>
 </table>
 
-<div id="servantAscension" class="hidden">
-  <img [src]="ascArt"/>
-
-
-
+<div id="servantAscension" *ngIf="displayArt">
+  <hr />
+  <h3 style="text-align:center;">{{ascensionName}}'s Ascension Art</h3>
+  <div class="ascensions">
+    <img class="img" *ngFor="let art of ascensions" [src]="art" />
+  </div>
 </div>

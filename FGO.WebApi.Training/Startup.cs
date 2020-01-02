@@ -68,6 +68,7 @@ namespace FGO.WebApi.Training
             }
 
             app.UseSwagger();
+
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "FGO Web API v1");
@@ -75,13 +76,8 @@ namespace FGO.WebApi.Training
             });
 
             app.UseStaticFiles();
-            //app.UseSpaStaticFiles();
-            //app.UseCors();
 
-            //app.UseEndpoints(routes =>
-            //{
-            //    routes.MapControllerRoute("default", "api/{controller}");
-            //});
+            app.UseCors();
 
             app.UseHttpsRedirection();
 
@@ -93,7 +89,7 @@ namespace FGO.WebApi.Training
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern:"{controller}/{action=Index}/{id?}");
+                    pattern:"api/{controller}/{action=Index}/{id?}");
             });
 
             app.UseSpa(spa =>

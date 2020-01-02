@@ -15,7 +15,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class FetchDataComponent implements OnInit{
   public servants: ServantBaseModel[];
   public apiUrl = 'api/Servant';
-  public ascArt: File;
+  public ascArt: any;
+  public ascensionSrc: any;
+  public displayArt: boolean;
+  public ascensionName: string;
+  public ascensions: string[];
+  selectedRow: number;
   baseUrl: string;
   http: HttpClient;
 
@@ -32,13 +37,23 @@ export class FetchDataComponent implements OnInit{
     }, error => console.error(error));
   }
 
-  function($scope) {
-    $scope.orderByField = 'cost'
-  }
-
-  onGetAscensionArt(id: number) {
-    this.http.get<File>(this.baseUrl + 'api/ascension/' + id + '/1').subscribe(result => {
-      this.ascArt = result;
+  onGetAscensionArt(id: number, name: string) {
+    this.selectedRow = id;
+    this.ascensionName = name;
+    this.ascensions = [];
+    this.http.get<string[]>(this.baseUrl + this.apiUrl + '/ascension/' + id).subscribe(result => {
+      if (result !== null) {
+        var ascensionsAux = result;
+        for (let art of ascensionsAux) {
+          this.ascensions.push('data:image/jpg;base64,' + art);
+        }
+        this.displayArt = true;
+      }
+      else {
+        this.ascArt = null;
+        this.ascensionSrc = null;
+        this.displayArt = false;
+      }
     });
   }
 }
@@ -61,3 +76,4 @@ interface ServantBaseModel {
   aliases: string;
   ascensions: string;
 }
+
