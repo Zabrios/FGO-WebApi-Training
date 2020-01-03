@@ -4,6 +4,14 @@
 
 <p *ngIf="!servants"><em>Loading...</em></p>
 
+<div *ngIf="servants">
+  <form>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+      <input class="form-control" [(ngModel)]="searchString" name="searchString" placeholder="Search a Servant..." type="text">
+    </div>
+  </form>
+</div>
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="servants">
   <thead>
     <tr>
@@ -21,7 +29,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="linkHover" *ngFor="let servant of servants" (click)="onGetAscensionArt(servant.id, servant.name)" [class.active]="servant.id == selectedRow">
+    <tr class="linkHover" *ngFor="let servant of servants | servantListFilterPipe:'name':searchString;" (click)="onGetAscensionArt(servant.id, servant.name)" [class.active]="servant.id == selectedRow">
       <td>{{ servant.id }}</td>
       <td>{{ servant.name }}</td>
       <td>{{ servant.cost }}</td>

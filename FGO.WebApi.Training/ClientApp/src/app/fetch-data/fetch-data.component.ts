@@ -1,7 +1,7 @@
-import { Component, Inject, NgModule, OnInit } from '@angular/core';
+import { Component, Inject, NgModule, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
+//import { FilterBoxComponent } from '../filter-box/filter-box.component';
 
 @Component({
   selector: 'app-fetch-data',
@@ -10,9 +10,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 
 @NgModule({
-    imports: [RouterModule],
+  imports: [RouterModule],
+  //declarations: [FilterBoxComponent]
 })
+
 export class FetchDataComponent implements OnInit{
+  //@ViewChild(FilterBoxComponent, { static: false }) filterBox;
   public servants: ServantBaseModel[];
   public apiUrl = 'api/Servant';
   public ascArt: any;
@@ -20,6 +23,7 @@ export class FetchDataComponent implements OnInit{
   public displayArt: boolean;
   public ascensionName: string;
   public ascensions: string[];
+  public searchString: string;
   selectedRow: number;
   baseUrl: string;
   http: HttpClient;
@@ -36,6 +40,10 @@ export class FetchDataComponent implements OnInit{
       console.log(result);
     }, error => console.error(error));
   }
+
+  //receiveMessage($event) {
+  //  this.searchString = $event;
+  //}
 
   onGetAscensionArt(id: number, name: string) {
     this.selectedRow = id;
