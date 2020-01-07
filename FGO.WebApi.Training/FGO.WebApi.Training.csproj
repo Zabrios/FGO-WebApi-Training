@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Remove="ClientApp\src\app\login\login.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FGO.WebApi.Domain.Contracts\FGO.WebApi.Domain.Contracts.csproj" />
     <ProjectReference Include="..\FGO.WebApi.Domain.Entities\FGO.WebApi.Domain.Entities.csproj" />
     <ProjectReference Include="..\FGO.WebApi.Domain\FGO.WebApi.Domain.csproj" />
@@ -15,7 +19,6 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="3.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />

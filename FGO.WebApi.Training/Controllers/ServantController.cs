@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 
 namespace FGO.WebApi.Training.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ServantController : ControllerBase
@@ -23,7 +22,7 @@ namespace FGO.WebApi.Training.Controllers
         }
 
         // GET: api/Servant
-        [HttpGet]
+        [HttpGet, Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [Produces("application/json", Type = typeof(List<ServantBaseModel>))]
         public async Task<IActionResult> GetAllServantsAsync()
@@ -33,7 +32,7 @@ namespace FGO.WebApi.Training.Controllers
                 var servants = await ServantService.GetAllServants();
                 return Ok(servants);
             }
-            catch (System.Exception)
+            catch (Exception)
             {
 
                 return BadRequest();
@@ -60,7 +59,7 @@ namespace FGO.WebApi.Training.Controllers
         /// </summary>
         /// <returns></returns>
         // PUT: api/Servant/5
-        [HttpPut]
+        [HttpPut, Authorize]
         public async Task<IActionResult> InsertServantAscensionImages()
         {
             bool worked = false;

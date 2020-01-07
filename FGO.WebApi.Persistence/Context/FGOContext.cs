@@ -1,6 +1,5 @@
 ﻿using FGO.WebApi.Domain.Entities.Models;
 using FGO.WebApi.Persistence.Contracts;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using System;
 

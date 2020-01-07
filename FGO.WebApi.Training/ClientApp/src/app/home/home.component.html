@@ -13,4 +13,16 @@
 </ul>
 <p>The <code>ClientApp</code> subdirectory is a standard Angular CLI application. If you open a command prompt in that directory, you can run any <code>ng</code> command (e.g., <code>ng test</code>), or use <code>npm</code> to install extra packages into it.</p>
 
-<img src="assets/FGO_banner.jpg"/>
+<div *ngIf="isUserAuthenticated()" style="color:blue;">
+  <h2>
+    YOU ARE LOGGED IN
+  </h2>
+</div>
+
+<br>
+<ul>
+  <li><a routerLink="/customers">Customer</a></li>
+  <li *ngIf="!isUserAuthenticated()"><a routerLink="/login">Login</a></li>
+  <li *ngIf="isUserAuthenticated()"><a class="logout" (click)="logOut()">Logout</a></li>
+</ul>
+<img src="assets/FGO_banner.jpg" />

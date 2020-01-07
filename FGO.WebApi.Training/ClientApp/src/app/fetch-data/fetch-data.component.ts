@@ -30,14 +30,18 @@ export class FetchDataComponent implements OnInit{
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.baseUrl = baseUrl;
-    this.http = http;
-    let headers = new HttpHeaders({ 'Content-Type': 'application-json'});
+    this.http = http;    
   }
 
   ngOnInit() {
-    this.http.get<ServantBaseModel[]>(this.baseUrl + this.apiUrl).subscribe(result => {
-      this.servants = result;
-      console.log(result);
+    let token = localStorage.getItem("jwt");
+    this.http.get<ServantBaseModel[]>(this.baseUrl + this.apiUrl, {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    }).subscribe(result => {
+        this.servants = result;
+        console.log(result);
     }, error => console.error(error));
   }
 

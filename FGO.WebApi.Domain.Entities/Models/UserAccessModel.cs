@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNetCore.Identity;
-
-namespace FGO.WebApi.Domain.Entities.Models
+﻿namespace FGO.WebApi.Domain.Entities.Models
 {
-    public class UserAccessModel : IdentityUser
+    public class UserAccessModel
     {
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }
