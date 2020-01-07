@@ -1,11 +1,13 @@
 using AutoMapper;
 using FGO.WebApi.Domain.Contracts.Services.Servant;
+using FGO.WebApi.Domain.Entities.Models;
 using FGO.WebApi.Domain.Services.Servant;
 using FGO.WebApi.Persistence;
 using FGO.WebApi.Persistence.Context;
 using FGO.WebApi.Persistence.Contracts;
 using FGO.WebApi.Persistence.Contracts.Repositories;
 using FGO.WebApi.Persistence.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -13,6 +15,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace FGO.WebApi.Training
 {
@@ -30,6 +34,7 @@ namespace FGO.WebApi.Training
         {
             services.AddControllers();
             services.AddScoped<IFGOContext, FGOContext>();
+            services.Configure<TokenDataModel>(option => Configuration.GetSection("Token").Bind(option));
 
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContext<FGOContext>(options =>
@@ -42,6 +47,26 @@ namespace FGO.WebApi.Training
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IServantService, ServantsService>();
             services.AddScoped<IServantsRepository, ServantsRepository>();
+
+            var key = Encoding.ASCII.GetBytes("test");
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+
+                };
+            });            
 
             services.AddSwaggerGen(c =>
             {

@@ -41,10 +41,6 @@ export class FetchDataComponent implements OnInit{
     }, error => console.error(error));
   }
 
-  //receiveMessage($event) {
-  //  this.searchString = $event;
-  //}
-
   onGetAscensionArt(id: number, name: string) {
     this.selectedRow = id;
     this.ascensionName = name;

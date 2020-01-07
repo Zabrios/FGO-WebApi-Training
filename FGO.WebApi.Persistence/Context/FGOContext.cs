@@ -1,5 +1,6 @@
 ﻿using FGO.WebApi.Domain.Entities.Models;
 using FGO.WebApi.Persistence.Contracts;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -19,7 +20,6 @@ namespace FGO.WebApi.Persistence.Context
         public FGOContext(DbContextOptions<FGOContext> options) : base(options) { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer(Configuration["ConnectionString"]);
             if (!optionsBuilder.IsConfigured)
             {
                 throw new Exception("Database not properly configured");

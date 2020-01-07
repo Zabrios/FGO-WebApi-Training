@@ -1,17 +1,17 @@
 ﻿using FGO.WebApi.Domain.Contracts.Services.Servant;
-using FGO.WebApi.Domain.Entities;
 using FGO.WebApi.Domain.Entities.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace FGO.WebApi.Training.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ServantController : ControllerBase

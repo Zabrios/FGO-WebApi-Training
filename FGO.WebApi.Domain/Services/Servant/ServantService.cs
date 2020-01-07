@@ -19,11 +19,6 @@ namespace FGO.WebApi.Domain.Services.Servant
             ServantsRepository = servantsRepository;
         }
 
-        //public void Dispose()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
         public async Task<List<ServantBaseModel>> GetAllServants()
         {
             var servants = await ServantsRepository.GetAllServants();
