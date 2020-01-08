@@ -27,6 +27,7 @@
   background-size: 45px 45px, 100% 100%, 100% 83%;
   background-position: 50% 98.5%, 0% 0%, 0% 20%;
   background-repeat: no-repeat, no-repeat, no-repeat;
+  border: 1px solid #000000;
 }
 
   .img:hover {
@@ -34,4 +35,5 @@
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
     cursor: pointer;
+    border: 3px solid #4893D4;
   }
