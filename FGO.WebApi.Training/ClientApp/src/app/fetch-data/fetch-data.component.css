@@ -28,3 +28,9 @@
   background-position: 50% 98.5%, 0% 0%, 0% 20%;
   background-repeat: no-repeat, no-repeat, no-repeat;
 }
+
+  .img:hover {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
