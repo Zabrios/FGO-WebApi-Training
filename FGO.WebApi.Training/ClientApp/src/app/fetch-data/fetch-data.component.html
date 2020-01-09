@@ -1,0 +1,55 @@
+<h1 id="tableLabel">Servants</h1>
+
+<p>Retrieves a list of servants stored in the database. Clicking a row may display the servant's ascension art.</p>
+
+<p *ngIf="!servants"><em>Loading...</em></p>
+
+<div *ngIf="servants">
+  <form>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+      <input class="form-control" [(ngModel)]="searchString" name="searchString" placeholder="Search a Servant..." type="text">
+    </div>
+  </form>
+</div>
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="servants">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Cost</th>
+      <th>Class</th>
+      <th>Max. Level</th>
+      <th colspan="2">Rarity</th>
+      <th>Atk. Lv1</th>
+      <th>Atk. Max Lvl</th>
+      <th>HP Lv1</th>
+      <th>HP Max Lvl</th>
+      <th>Command Cards</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="linkHover" *ngFor="let servant of servants | servantListFilterPipe:'name':searchString;" (click)="onGetAscensionArt(servant.id, servant.name)" [class.active]="servant.id == selectedRow">
+      <td>{{ servant.id }}</td>
+      <td>{{ servant.name }}</td>
+      <td>{{ servant.cost }}</td>
+      <td>{{ servant.servantClass }}</td>
+      <td>{{ servant.maxLvl }}</td>
+      <td>{{ servant.rarityNum }}</td>
+      <td>{{ servant.rarityName }}</td>
+      <td>{{ servant.atkLv1 }}</td>
+      <td>{{ servant.atkMaxLv }}</td>
+      <td>{{ servant.hpLv1 }}</td>
+      <td>{{ servant.hpMaxLv }}</td>
+      <td id="cards">{{ servant.commandCards }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div id="servantAscension" *ngIf="displayArt">
+  <hr />
+  <h3 style="text-align:center;">{{ascensionName}}'s Ascension Art</h3>
+  <div class="ascensions">
+    <img class="img" *ngFor="let art of ascensions" [src]="art" />
+  </div>
+</div>

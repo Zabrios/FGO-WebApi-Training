@@ -45,8 +45,7 @@ namespace FGO.WebApi.Persistence.Repositories
 
         public async Task<IEnumerable<AscensionModel>> GetAscensionArtFromServant(int servantId)
         {
-            return await Context.Ascensions.Where(x => x.ServantId == servantId).ToListAsync();
-            //return await Context.Ascensions.FirstOrDefaultAsync(x => x.ServantId == servantId);
+            return await Context.Ascensions.Where(x => x.ServantId == servantId).ToListAsync();            
         }
     }
 }

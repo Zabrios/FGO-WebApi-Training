@@ -1,0 +1,30 @@
+.hidden {
+  visibility: hidden;
+}
+
+.table tr.active td {
+  background-color: #4893D4 !important;
+}
+
+.linkHover {
+  cursor: pointer;
+}
+
+  .linkHover:hover {
+    background: #4893D4;
+  }
+
+.ascensions {
+  display: flex;
+  width: 80%;
+}
+
+.img {
+  width: 272px;
+  height: 376px;
+  float: left;
+  margin: 10px 0px 10px 5px;
+  background-size: 45px 45px, 100% 100%, 100% 83%;
+  background-position: 50% 98.5%, 0% 0%, 0% 20%;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+}
