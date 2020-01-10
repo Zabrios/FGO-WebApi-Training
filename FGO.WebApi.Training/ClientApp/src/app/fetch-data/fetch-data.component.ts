@@ -64,6 +64,13 @@ export class FetchDataComponent implements OnInit{
       }
     });
   }
+
+  onGetServantByClass(event) {
+    this.http.get<ServantBaseModel[]>(this.baseUrl + this.apiUrl + "/" + event.srcElement.id).subscribe(result => {
+      this.servants = result;
+      console.log(result);
+    }, error => console.error(error));
+  }
 }
 
 interface ServantBaseModel {

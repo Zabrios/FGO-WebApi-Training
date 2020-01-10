@@ -59,8 +59,16 @@ namespace FGO.WebApi.Domain.Services.Servant
 
         public async Task<List<ServantBaseModel>> GetAllServantsByClass(string servantClass)
         {
-            var servants = await ServantsRepository.GetAllServantsByClass(servantClass);
-            return servants.ToList();
+            if(string.IsNullOrWhiteSpace(servantClass) || servantClass == "all")
+            {
+                var servants = await ServantsRepository.GetAllServants();
+                return servants.ToList();
+            }
+            else
+            {
+                var servants = await ServantsRepository.GetAllServantsByClass(servantClass);
+                return servants.ToList();
+            }
         }
     }
 }

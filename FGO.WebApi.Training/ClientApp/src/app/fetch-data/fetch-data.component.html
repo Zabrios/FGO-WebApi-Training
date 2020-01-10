@@ -5,20 +5,20 @@
 <p *ngIf="!servants"><em>Loading...</em></p>
 
 <div *ngIf="servants">
-  <img class="class-icons" src="assets/Icon_Class_All_Silver.png" />
-  <img class="class-icons" src="assets/Icon_Class_Saber_Silver.png" />
-  <img class="class-icons" src="assets/Icon_Class_Archer_Silver.png" />
-  <img class="class-icons" src="assets/Icon_Class_Lancer_Silver.png" />
-  <img class="class-icons" src="assets/Icon_Class_Caster_Silver.png" />
-  <img class="class-icons" src="assets/Icon_Class_Rider_Silver.png" />
-  <img class="class-icons" src="assets/Icon_Class_Assassin_Silver.png" />
-  <img class="class-icons" src="assets/Icon_Class_Berserker_Silver.png" />
-  <img class="class-icons" src="assets/Icon_Class_Ruler_Silver.png" />
-  <img class="class-icons" src="assets/Icon_Class_Avenger_Silver.png" />
-  <img class="class-icons" src="assets/Icon_Class_Alter-Ego_Silver.png" />
-  <img class="class-icons" src="assets/Icon_Class_Mooncancer_Silver.png" />
-  <img class="class-icons" src="assets/Class-Foreigner-Silver.png" />
-  <img class="class-icons" src="assets/Icon_Class_Beast_I_Gold.png" />
+  <img id="all" (click)="onGetServantByClass($event)" class="class-icons" src="assets/Icon_Class_All_Silver.png" />
+  <img id="saber" (click)="onGetServantByClass($event)" class="class-icons" src="assets/Icon_Class_Saber_Silver.png" />
+  <img id="archer" class="class-icons" src="assets/Icon_Class_Archer_Silver.png" />
+  <img id="lancer" class="class-icons" src="assets/Icon_Class_Lancer_Silver.png" />
+  <img id="caster" class="class-icons" src="assets/Icon_Class_Caster_Silver.png" />
+  <img id="rider" class="class-icons" src="assets/Icon_Class_Rider_Silver.png" />
+  <img id="assassin" class="class-icons" src="assets/Icon_Class_Assassin_Silver.png" />
+  <img id="berserker" class="class-icons" src="assets/Icon_Class_Berserker_Silver.png" />
+  <img id="ruler" class="class-icons" src="assets/Icon_Class_Ruler_Silver.png" />
+  <img id="avenger" class="class-icons" src="assets/Icon_Class_Avenger_Silver.png" />
+  <img id="alterego" class="class-icons" src="assets/Icon_Class_Alter-Ego_Silver.png" />
+  <img id="mooncancer" class="class-icons" src="assets/Icon_Class_Mooncancer_Silver.png" />
+  <img id="foreigner" class="class-icons" src="assets/Class-Foreigner-Silver.png" />
+  <img id="beast" class="class-icons" src="assets/Icon_Class_Beast_I_Gold.png" />
   <form>
     <div class="input-group">
       <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
