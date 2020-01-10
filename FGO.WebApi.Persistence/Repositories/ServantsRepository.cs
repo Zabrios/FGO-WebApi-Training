@@ -26,6 +26,11 @@ namespace FGO.WebApi.Persistence.Repositories
             return await Context.Servants.ToListAsync();
         }
 
+        public async Task<IEnumerable<ServantBaseModel>> GetAllServantsByClass(string servantClass)
+        {
+            return await Context.Servants.Where(s => s.ServantClass == servantClass).ToListAsync();
+        }
+
         public async Task<ServantBaseModel> GetServantById(int id)
         {
             return await Context.Servants.FindAsync(id);

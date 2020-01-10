@@ -33,7 +33,25 @@ namespace FGO.WebApi.Training.Controllers
                 var servants = await ServantService.GetAllServants();
                 return Ok(servants);
             }
-            catch (System.Exception)
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+        }
+
+        [Route("{servantClass}")]
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [Produces("application/json", Type = typeof(List<ServantBaseModel>))]
+        public async Task<IActionResult> GetAllServantsByClassAsync(string servantClass)
+        {
+            try
+            {
+                var servants = await ServantService.GetAllServantsByClass(servantClass);
+                return Ok(servants);
+            }
+            catch (Exception)
             {
 
                 return BadRequest();

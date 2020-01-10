@@ -56,5 +56,11 @@ namespace FGO.WebApi.Domain.Services.Servant
         {
             return await ServantsRepository.GetAscensionArtFromServant(id);
         }
+
+        public async Task<List<ServantBaseModel>> GetAllServantsByClass(string servantClass)
+        {
+            var servants = await ServantsRepository.GetAllServantsByClass(servantClass);
+            return servants.ToList();
+        }
     }
 }
